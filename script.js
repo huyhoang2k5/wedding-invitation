@@ -2,7 +2,6 @@
     const movingPhotos = document.querySelectorAll(".moving-photo");
     const rsvpForm = document.querySelector("#rsvpForm");
     const formMessage = document.querySelector("#formMessage");
-    const musicToggle = document.querySelector("#musicToggle");
     const weddingMusic = document.querySelector("#weddingMusic");
 
     const observer = new IntersectionObserver((entries) => {
@@ -51,15 +50,15 @@
 
     updateMotion();
 
-    musicToggle.addEventListener("click", async () => {
-      if (weddingMusic.paused) {
-        await weddingMusic.play();
-        musicToggle.innerHTML = "<span>Ⅱ</span> Tắt nhạc";
-      } else {
-        weddingMusic.pause();
-        musicToggle.innerHTML = "<span>♪</span> Beautiful in White";
-      }
-    });
+    function startWeddingMusic() {
+      weddingMusic.play().catch(() => {});
+      document.removeEventListener("click", startWeddingMusic);
+      document.removeEventListener("touchstart", startWeddingMusic);
+    }
+
+    startWeddingMusic();
+    document.addEventListener("click", startWeddingMusic);
+    document.addEventListener("touchstart", startWeddingMusic);
 
     function cleanCsvValue(value) {
       return `"${String(value).replaceAll('"', '""')}"`;

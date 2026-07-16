@@ -55,37 +55,6 @@
       backdrop-filter: blur(18px);
     }
 
-    .music-toggle {
-      position: fixed;
-      z-index: 35;
-      right: clamp(16px, 4vw, 34px);
-      bottom: clamp(16px, 4vw, 34px);
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      min-height: 48px;
-      padding: 0 18px;
-      border: 1px solid rgba(255, 255, 255, 0.68);
-      border-radius: 18px;
-      color: white;
-      background: rgba(111, 36, 59, 0.78);
-      box-shadow: 0 18px 40px rgba(35, 12, 20, 0.22);
-      backdrop-filter: blur(14px);
-      font: inherit;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    .music-toggle span {
-      display: inline-grid;
-      place-items: center;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      color: var(--wine);
-      background: white;
-    }
-
     .brand {
       font-family: var(--serif);
       font-size: 25px;
@@ -874,13 +843,6 @@
         font-size: 16px;
       }
       .submit-button { width: 100%; }
-      .music-toggle {
-        right: 14px;
-        bottom: 14px;
-        min-height: 44px;
-        padding: 0 14px;
-        font-size: 14px;
-      }
     }
 
     @media (max-width: 380px) {
