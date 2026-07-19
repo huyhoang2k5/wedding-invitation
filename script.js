@@ -1,7 +1,5 @@
 ﻿const revealItems = document.querySelectorAll(".reveal");
     const movingPhotos = document.querySelectorAll(".moving-photo");
-    const rsvpForm = document.querySelector("#rsvpForm");
-    const formMessage = document.querySelector("#formMessage");
     const weddingMusic = document.querySelector("#weddingMusic");
 
     const observer = new IntersectionObserver((entries) => {
@@ -60,43 +58,4 @@
     document.addEventListener("click", startBackgroundMusic);
     document.addEventListener("touchstart", startBackgroundMusic);
 
-    function cleanCsvValue(value) {
-      return `"${String(value).replaceAll('"', '""')}"`;
-    }
-
-    function downloadRsvpFile(data) {
-      const header = ["Thời gian gửi", "Tên người gửi", "Lời chúc"];
-      const row = [
-        new Date().toLocaleString("vi-VN"),
-        data.guestName,
-        data.wish || ""
-      ];
-      const csvContent = [header, row]
-        .map((items) => items.map(cleanCsvValue).join(","))
-        .join("\n");
-      const blob = new Blob(["\uFEFF" + csvContent], { type: "text/csv;charset=utf-8" });
-      const link = document.createElement("a");
-
-      link.href = URL.createObjectURL(blob);
-      link.download = `loi-chuc-dung-anh-${Date.now()}.csv`;
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-      URL.revokeObjectURL(link.href);
-    }
-
-    rsvpForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-
-      const formData = new FormData(rsvpForm);
-      const data = {
-        guestName: formData.get("guestName"),
-        wish: formData.get("wish")
-      };
-
-      downloadRsvpFile(data);
-      formMessage.textContent = "Cảm ơn bạn, file lời chúc đã được tải xuống.";
-      formMessage.classList.add("is-visible");
-      rsvpForm.reset();
-    });
 
