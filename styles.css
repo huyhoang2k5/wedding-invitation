@@ -81,7 +81,7 @@
       color: white;
       background:
         linear-gradient(90deg, rgba(25, 62, 58, 0.78), rgba(25, 62, 58, 0.28) 55%, rgba(25, 62, 58, 0.08)),
-        url("preview-104.jpg") center / cover;
+        url("preview-104.jpg") center 24% / cover;
     }
 
     .hero::after {
@@ -368,6 +368,10 @@
       will-change: transform;
     }
 
+    .timeline-photo .moving-photo {
+      object-position: center 24%;
+    }
+
     .names p {
       margin: 0 0 18px;
       color: var(--muted);
@@ -577,7 +581,7 @@
     .event {
       background:
         linear-gradient(rgba(255, 250, 244, 0.92), rgba(255, 250, 244, 0.92)),
-        url("preview-104.jpg") center / cover;
+        url("preview-104.jpg") center 24% / cover;
     }
 
     .event-box {
@@ -617,7 +621,7 @@
       color: white;
       background:
         linear-gradient(rgba(31, 76, 71, 0.78), rgba(31, 76, 71, 0.78)),
-        url("preview-104.jpg") center / cover;
+        url("preview-104.jpg") center 24% / cover;
       background-attachment: fixed;
       overflow: hidden;
     }
