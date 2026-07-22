@@ -9,6 +9,11 @@
     }, { threshold: 0.14 });
 
     revealItems.forEach((item) => observer.observe(item));
+    movingPhotos.forEach((photo) => {
+      photo.addEventListener("error", () => {
+        photo.src = "preview-104.jpg";
+      }, { once: true });
+    });
 
     function updateMotion() {
       const viewportHeight = window.innerHeight;
